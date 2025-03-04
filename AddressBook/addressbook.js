@@ -87,3 +87,10 @@ AddressBook.prototype.editContact = function (firstName, lastName, newDetails) {
 // Example of editing contact
 myAddressBook.editContact("Rajan", "Chouhan", { phoneNumber: "1234567890" });
 console.log(myAddressBook.contacts);
+
+AddressBook.prototype.getNumberOfContacts = function () {
+    return this.contacts.length;
+};
+
+// Example of getting the number of contacts
+console.log("Number of contacts: ", myAddressBook.getNumberOfContacts());
