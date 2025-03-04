@@ -165,3 +165,12 @@ AddressBook.prototype.sortByName = function () {
 // Example of sorting by name
 myAddressBook.sortByName();
 console.log(myAddressBook.contacts);
+
+
+AddressBook.prototype.sortBy = function (key) {
+    this.contacts.sort((a, b) => a[key].localeCompare(b[key]));
+};
+
+// Example of sorting by city
+myAddressBook.sortBy("city");
+console.log(myAddressBook.contacts);
