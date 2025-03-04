@@ -41,13 +41,35 @@ function validateContact(contact) {
     return true;
 }
 
+// Example Contact
+const contact1 = new Contact("Rajan", "Chouhan", "Anand Nagar", "Bhopal", "Madhya Pradesh", "400088", "1234567890", "rajan@example.com");
+console.log(contact1.toString());
+
 try {
-    // Example Contact
-    const contact1 = new Contact("Rajan", "Chouhan", "Anand Nagar", "Bhopal", "Madhya Pradesh", "400088", "1234567890", "rajan@example.com");
     validateContact(contact1);  // Validate contact1
     console.log("Contact is valid.");
-    console.log(contact1.toString());
 } 
 catch (error) {
     console.error(error.message);
 }
+
+class AddressBook {
+    constructor() {
+        this.contacts = [];
+    }
+
+    addContact(contact) {
+        try {
+            validateContact(contact);
+            this.contacts.push(contact);
+            console.log("Contact added successfully.");
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+}
+
+// Create address book
+const myAddressBook = new AddressBook();
+myAddressBook.addContact(contact1);
+console.log(myAddressBook.contacts);
