@@ -129,5 +129,13 @@ AddressBook.prototype.addContact = function (contact) {
     }
 };
 
-// Example of adding a duplicate contact
+// Example of adding a non duplicate contact
 myAddressBook.addContact(contact);
+
+
+AddressBook.prototype.searchByCityOrState = function (city, state) {
+    return this.contacts.filter(contact => contact.city === city || contact.state === state);
+};
+
+// Example of searching contacts
+console.log(myAddressBook.searchByCityOrState("Bhopal", "Madhya Pradesh"));
