@@ -147,3 +147,12 @@ AddressBook.prototype.viewByCityOrState = function (city, state) {
 
 // Example of viewing contacts
 console.log(myAddressBook.viewByCityOrState("Bhopal", "Madhya Pradesh"));
+
+
+AddressBook.prototype.getCountByCityOrState = function (city, state) {
+    const filteredContacts = this.contacts.filter(contact => contact.city === city || contact.state === state);
+    return filteredContacts.length;
+};
+
+// Example of getting contact count
+console.log("Number of contacts in Bhopal or Madhya Pradesh : ", myAddressBook.getCountByCityOrState("Bhopal", "Madhya Pradesh"));
