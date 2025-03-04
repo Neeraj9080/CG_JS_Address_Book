@@ -73,3 +73,17 @@ class AddressBook {
 const myAddressBook = new AddressBook();
 myAddressBook.addContact(contact1);
 console.log(myAddressBook.contacts);
+
+AddressBook.prototype.editContact = function (firstName, lastName, newDetails) {
+    const index = this.contacts.findIndex(contact => contact.firstName === firstName && contact.lastName === lastName);
+    if (index !== -1) {
+        this.contacts[index] = { ...this.contacts[index], ...newDetails };
+        console.log("Contact updated successfully.");
+    } else {
+        console.log("Contact not found.");
+    }
+};
+
+// Example of editing contact
+myAddressBook.editContact("Rajan", "Chouhan", { phoneNumber: "1234567890" });
+console.log(myAddressBook.contacts);
