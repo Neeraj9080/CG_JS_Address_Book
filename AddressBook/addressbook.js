@@ -139,3 +139,11 @@ AddressBook.prototype.searchByCityOrState = function (city, state) {
 
 // Example of searching contacts
 console.log(myAddressBook.searchByCityOrState("Bhopal", "Madhya Pradesh"));
+
+
+AddressBook.prototype.viewByCityOrState = function (city, state) {
+    return this.contacts.filter(contact => contact.city === city || contact.state === state).map(contact => contact.toString());
+};
+
+// Example of viewing contacts
+console.log(myAddressBook.viewByCityOrState("Bhopal", "Madhya Pradesh"));
