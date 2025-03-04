@@ -104,3 +104,9 @@ myAddressBook.deleteContact("Rajan", "Chouhan");
 console.log(myAddressBook.contacts);
 
 
+AddressBook.prototype.getNumberOfContacts = function () {
+    return this.contacts.length;
+};
+
+// Example of getting the number of contacts
+console.log("Number of contacts: ", myAddressBook.getNumberOfContacts());
