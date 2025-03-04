@@ -156,3 +156,12 @@ AddressBook.prototype.getCountByCityOrState = function (city, state) {
 
 // Example of getting contact count
 console.log("Number of contacts in Bhopal or Madhya Pradesh : ", myAddressBook.getCountByCityOrState("Bhopal", "Madhya Pradesh"));
+
+
+AddressBook.prototype.sortByName = function () {
+    this.contacts.sort((a, b) => a.firstName.localeCompare(b.firstName) || a.lastName.localeCompare(b.lastName));
+};
+
+// Example of sorting by name
+myAddressBook.sortByName();
+console.log(myAddressBook.contacts);
