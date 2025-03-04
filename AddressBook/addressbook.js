@@ -110,3 +110,24 @@ AddressBook.prototype.getNumberOfContacts = function () {
 
 // Example of getting the number of contacts
 console.log("Number of contacts: ", myAddressBook.getNumberOfContacts());
+
+const contact = new Contact("Sachin", "Shrivastwa", "Anand Nagar", "Bhopal", "Madhya Pradesh", "400088", "0987654321", "sachin@example.com");
+AddressBook.prototype.addContact = function (contact) {
+    const isDuplicate = this.contacts.some(existingContact => 
+        existingContact.firstName === contact.firstName && existingContact.lastName === contact.lastName
+    );
+    if (isDuplicate) {
+        console.log("Duplicate entry found.");
+    } else {
+        try {
+            validateContact(contact);
+            this.contacts.push(contact);
+            console.log("Contact added successfully.");
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+};
+
+// Example of adding a duplicate contact
+myAddressBook.addContact(contact);
